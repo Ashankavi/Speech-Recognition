@@ -1,6 +1,6 @@
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import useClipboard from "react-use-clipboard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Speech = () => {
     const [textToCopy, setTextToCopy] = useState('');
@@ -8,8 +8,13 @@ const Speech = () => {
         successDuration: 1000
     });
 
-    const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
-    const { transcript, browserSupportsSpeechRecognition } = useSpeechRecognition();
+    const { transcript, browserSupportsSpeechRecognition, resetTranscript } = useSpeechRecognition();
+
+    const recognitionRef = useRef(null);
+
+    const startListening = () => {
+        recognitionRef.current = SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
+    };
 
     useEffect(() => {
         setTextToCopy(transcript);
@@ -17,6 +22,11 @@ const Speech = () => {
 
     const handleTextChange = (event) => {
         setTextToCopy(event.target.value);
+    };
+
+    const clearText = () => {
+        setTextToCopy('');
+        resetTranscript();
     };
 
     if (!browserSupportsSpeechRecognition) {
@@ -32,7 +42,7 @@ const Speech = () => {
                 </p>
 
                 <textarea
-                    className=' text-start text-[16px] max-w-[50rem] w-[100%] min-h-[400px] h-auto py-[120px] px-[18px] bg-slate-300 hover:bg-[#b7f3eb] shadow-black border-[1px] rounded-[20px] relative'
+                    className='text-start text-[16px] max-w-[50rem] w-[100%] min-h-[400px] h-auto py-[18px] px-[18px] bg-slate-300 hover:bg-[#b7f3eb] shadow-black border-[1px] rounded-[20px] relative'
                     value={textToCopy}
                     onChange={handleTextChange}
                 ></textarea>
@@ -50,7 +60,7 @@ const Speech = () => {
                         {isCopied ? 'Copied!' : 'Copy'}
                     </button>
 
-                    <button className='bg-emerald-400 text-black border-none rounded-lg py-[18px] px-[40px] text-[18px] leading-4 relative cursor-pointer focus:bg-[#73db5f] hover:bg-[#82f16c]' >
+                    <button className='bg-emerald-400 text-black border-none rounded-lg py-[18px] px-[40px] text-[18px] leading-4 relative cursor-pointer focus:bg-[#73db5f] hover:bg-[#82f16c]' onClick={clearText}>
                         Clear
                     </button>
                 </div>
