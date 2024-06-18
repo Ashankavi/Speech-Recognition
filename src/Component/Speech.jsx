@@ -39,18 +39,20 @@ const Speech = () => {
         <div className='mx-auto p-4 text-center items-center justify-center'>
             <div>
                 <h2 className='text-white font-bold uppercase text-center text-4xl md:text-4xl lg:text-5xl leading-[35px] mt-8 '>Speech to Text Converter</h2><br />
-                <p className='max-w-3xl text-white mx-auto text-center mb-6 text-xl md:text-base lg:text-lg'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nemo eos perspiciatis ab placeat molestias, vero qui. Architecto, cumque impedit quo dolores quam perferendis accusantium excepturi perspiciatis dicta obcaecati ducimus.
+                <p className='max-w-3xl text-white mx-auto text-center mb-6 text-sm md:text-base lg:text-lg font-medium'>
+                "Our Speech to Text Converter project enables users to effortlessly transcribe spoken English and Sinhala <span className=' font-bold  text-[15px]'> (සිංහල)</span> language into accurate text. 
+                Whether capturing lectures, meetings, or personal notes, our advanced technology ensures seamless and reliable transcription, enhancing accessibility 
+                and productivity across languages."
                 </p>
 
 
-                <div className='flex flex-wrap gap-4 p-4 justify-center items-center mb-6'>
+                <div className='flex flex-wrap gap-4 p-4 justify-center items-center mb-6 '>
                     <div className='flex gap-4'>
-                        <button className='bg-emerald-400 text-black border-none rounded-lg py-2 px-4 text-sm md:text-base lg:text-lg leading-4 relative cursor-pointer focus:bg-[#73db5f] hover:bg-[#82f16c]' onClick={() => startListening('en-IN')}>
+                        <button className='bg-[#2bd3ca] focus:bg-[#65fcf4] shadow-md hover:bg-[#80d7ff] text-black font-medium border-none rounded-lg py-2 px-4 text-sm md:text-base lg:text-lg leading-4 relative cursor-pointer ' onClick={() => startListening('en-IN')}>
                             Start Listening (English)
                         </button>
-                        <button className='bg-emerald-400 text-black border-none rounded-lg py-2 px-4 text-sm md:text-base lg:text-lg leading-4 relative cursor-pointer focus:bg-[#73db5f] hover:bg-[#82f16c]' onClick={() => startListening('si-LK')}>
-                            Start Listening (Sinhala)
+                        <button className='bg-[#2bd3ca] focus:bg-[#65fcf4] shadow-md hover:bg-[#80d7ff] text-black font-medium border-none rounded-lg py-2 px-4 text-sm md:text-base lg:text-lg leading-4 relative cursor-pointer ' onClick={() => startListening('si-LK')}>
+                            Start Listening <span className=' font-bold text-[15px]'> (සිංහල)</span>
                         </button>
                     </div>
                 </div>    
@@ -61,18 +63,18 @@ const Speech = () => {
                     onChange={handleTextChange}
                 ></textarea>
 
-                <div className='flex flex-wrap gap-4 p-4 justify-center items-center mt-6'>
+                <div className='flex flex-wrap gap-4 p-4 justify-center items-center mt-6 font-medium text-white '>
                     <div className='flex gap-4 mt-4 md:mt-0'>
 
-                        <button className='bg-[#d35050] focus:bg-[#e24b4b] hover:bg-[#ff5858] text-white border-none rounded-lg py-2 px-4 text-sm md:text-base lg:text-lg leading-4 relative cursor-pointer ' onClick={SpeechRecognition.stopListening}>
+                        <button className='bg-[#d44545] shadow-md focus:bg-[#ff4747] hover:bg-[#db4a4a] text-white  rounded-lg py-2 px-4 text-sm md:text-base lg:text-lg leading-4 relative cursor-pointer ' onClick={SpeechRecognition.stopListening}>
                             Stop Listening
                         </button>
 
-                        <button className='bg-emerald-400 text-black border-none rounded-lg py-2 px-4 text-sm md:text-base lg:text-lg leading-4 relative cursor-pointer focus:bg-[#73db5f] hover:bg-[#82f16c]' onClick={setCopied}>
+                        <button className='bg-[#4bd536]  focus:bg-[#6fff52] hover:bg-[#72d35f] hover:text-[#000000] shadow-md  border-none rounded-lg py-2 px-4 text-sm md:text-base lg:text-lg leading-4 relative cursor-pointer ' onClick={setCopied}>
                             {isCopied ? 'Copied!' : 'Copy'}
                         </button>
 
-                        <button className='bg-emerald-400 text-black border-none rounded-lg py-2 px-4 text-sm md:text-base lg:text-lg leading-4 relative cursor-pointer focus:bg-[#73db5f] hover:bg-[#82f16c]' onClick={clearText}>
+                        <button className='bg-[#4bd536]  focus:bg-[#6fff52] hover:bg-[#72d35f] hover:text-[#000000]  shadow-md  border-none rounded-lg py-2 px-4 text-sm md:text-base lg:text-lg leading-4 relative cursor-pointer' onClick={clearText}>
                             Clear
                         </button>
                         
