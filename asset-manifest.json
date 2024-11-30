@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Speech-Recognition/static/css/main.fc63ac9b.css",
+    "main.js": "/Speech-Recognition/static/js/main.e631d2dd.js",
+    "index.html": "/Speech-Recognition/index.html",
+    "main.fc63ac9b.css.map": "/Speech-Recognition/static/css/main.fc63ac9b.css.map",
+    "main.e631d2dd.js.map": "/Speech-Recognition/static/js/main.e631d2dd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fc63ac9b.css",
+    "static/js/main.e631d2dd.js"
+  ]
+}
